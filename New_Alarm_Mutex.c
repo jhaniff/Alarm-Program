@@ -1,26 +1,3 @@
-/*
-TO DO: Nov 11th 2023
-Stefano Giammarresi, Danial Danial, Joshua Hanif, Cody V, Ricardo
-- Add functionality to Start_Alarm - COMPLETE
-- print the elements in the alarm list - COMPLETE
-- Add functionality to Replace_Alarm - COMPLETE
-- Add functionality to Cancel_Alarm - COMPLETE
-- print alarm list after each Replace alarm - COMPLETE
-- print alarm list after each Cancel alarm - COMPLETE
-- Calculate group time number - COMPLETE
-- Add alarm to proper time group - COMPLETE
-- Sort list by alarm ID -COMPLETE
-- Display thread time since EPOCH - COMPLETE
-- dalarm = alarm_list; //dalarm returns NULL line 137 - COMPLETE
-- Create display alarm thread for each time group number - COMPLETE
-- Add alarm to its specifed display alarm thread based on its time group number - COMPLETE
-- Add functionality for the display alarm thread - COMPLETE
-- Add display alarm thread manipulation to Replace_Alarm and Cancel_Alarm for the right group
-- Fix timing issue with the alarms in the alarm time groups
-- Display proper thread ID - COMPLETED
-- Add comments - In progress
-*/
-
 
 /*
  * alarm_mutex.c
