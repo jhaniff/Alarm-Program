@@ -1,0 +1,193 @@
+Compile Assignement-2 Program
+=============================
+
+dan@Ubuntu-Virtual-Machine:~/C_Project$ gcc New_Alarm_Mutex.c -lpthread
+
+=====================
+Running the Program
+=====================
+dan@Ubuntu-Virtual-Machine:~/C_Project$ ./a.out
+alarm> 
+
+================================
+- Excuting Start_Alarm Command
+================================
+- Start_Alarm Test Cases for Incorrect Input Values
+====================================================
+alarm> start_alarm(1) 10 hellooo
+2- This is a Bad command
+alarm> Start_alarm(1) helllooo
+1- This is a Bad command
+alarm> Start_Alarm(Start_Alarm) 10 dasdasd
+This is a Bad command, one of the input values is not correct
+alarm> Start_Alarm(Start_Alarm(10) 10) 5 dasdadas
+This is a Bad command, one of the input values is not correct
+alarm> Start_Alarm(1) hello 60
+1- This is a Bad command
+alarm> 
+alarm> 
+alarm> 
+alarm> 
+alarm> Start_Alarm(1) 60 abc
+Alarm(1) Inserted by Main Thread 22294 Into Alarm List at 1699917666: 60 abc
+alarm> Start_Alarm(2) 40 bbc
+Alarm(2) Inserted by Main Thread 22294 Into Alarm List at 1699917656: 40 bbc
+alarm> Cancel_Alarm(2)
+alarm> Alarm(2) Canceled at 1699917628: 40 bbc.
+(60) abc
+Alarm (1) Printed by Alarm Thread 22297 for Alarm_Time_Group_Number 12 at 1699917666: 60 abc
+alarm> 
+alarm>
+
+=================================================
+- Test Replace Alarm for an already running Alarm
+=================================================
+alarm> Start_Alarm(1) 60 Helooooo
+Alarm(1) Inserted by Main Thread 22838 Into Alarm List at 1699926045: 60 Helooooo
+alarm> Replace_Alarm(1) 10 asddas
+alarm> Requested Alarm ID to be Replaced is not found or It is already Running!
+(60) Helooooo
+Alarm (1) Printed by Alarm Thread 22840 for Alarm_Time_Group_Number 12 at 1699926045: 60 Helooooo
+alarm> 
+alarm> 
+
+======================================
+- Start a new Alarm with Alarm ID = 0
+======================================
+alarm> 
+alarm> Start_Alarm(0) 10 hellloooo
+This is a Bad command, one of the input values is not correct
+alarm> 
+
+===================================
+- Test wrong Start_Alarm command
+===================================
+alarm> 
+alarm> Stqart_Alarm(-1) 10 xyz
+This is a Bad command, one of the input values is not correct
+alarm> 
+
+===================================
+- Test a Negative Alarm ID
+===================================
+
+alarm> 
+alarm> Stqart_Alarm(-1) 10 xyz
+This is a Bad command, one of the input values is not correct
+alarm> 
+
+
+========================================
+- Test the length of the input Message 
+========================================
+
+- A message with more than 128 char, the letter 's' at the end of the string message is truncated
+dasdasdsaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddds
+
+alarm> Start_Alarm(1) 10 dasdasdsaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddds
+Alarm(1) Inserted by Main Thread 22500 Into Alarm List at 1699920771: 10 dasdasdsaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+alarm> (10) dasdasdsaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+Alarm (1) Printed by Alarm Thread 22502 for Alarm_Time_Group_Number 2 at 1699920771: 10 dasdasdsaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
+
+
+=============================
+-- Cancel_Alarm Test Cases:
+=============================
+
+alarm> CancelAlarm(10
+1- This is a Bad command
+alarm> Cancel_Alarm(1)
+alarm> Requested Alarm ID to be Cancelled is not found!
+
+alarm> Cancel_Alarm(
+This is a Bad command, one of the input values is not correct
+alarm> Cancel_Alarm(1) 10 
+1- This is a Bad command
+alarm> 
+alarm> 
+alarm> Start_Alarm(1) 60 start1
+Alarm(1) Inserted by Main Thread 23086 Into Alarm List at 1699928064: 60 start1
+alarm> Start_Alarm(2) 30 start2
+Alarm(2) Inserted by Main Thread 23086 Into Alarm List at 1699928044: 30 start2
+alarm> Cancel_Alarm(2)
+alarm> Alarm(2) Canceled at 1699928022: 30 start2.
+(60) start1
+Alarm (1) Printed by Alarm Thread 23091 for Alarm_Time_Group_Number 12 at 1699928064: 60 start1
+
+alarm> 
+
+alarm> Start_Alarm(1) 60 abc
+Alarm(1) Inserted by Main Thread 22294 Into Alarm List at 1699917666: 60 abc
+alarm> Start_Alarm(2) 40 bbc
+Alarm(2) Inserted by Main Thread 22294 Into Alarm List at 1699917656: 40 bbc
+alarm> Cancel_Alarm(2)
+alarm> Alarm(2) Canceled at 1699917628: 40 bbc.
+(60) abc
+Alarm (1) Printed by Alarm Thread 22297 for Alarm_Time_Group_Number 12 at 1699917666: 60 abc
+alarm> 
+alarm>
+
+
+
+======================
+-Replace Test Cases 
+======================
+- Start Two Alarms and replace the Second Alarm
+==================================================
+alarm> Start_Alarm(1) 70 h1
+Alarm(1) Inserted by Main Thread 23112 Into Alarm List at 1699928446: 70 h1
+alarm> Start_Alarm(2) 40 h2
+Alarm(2) Inserted by Main Thread 23112 Into Alarm List at 1699928424: 40 h2
+alarm> Replace_Alarm(2) 20 hhh2
+alarm> Alarm (2) Replaced at <1699928392>: 20 hhh2.
+(70) h1
+Alarm (1) Printed by Alarm Thread 23114 for Alarm_Time_Group_Number 14 at 1699928446: 70 h1
+(20) hhh2
+Alarm (2) Printed by Alarm Thread 23118 for Alarm_Time_Group_Number 4 at 1699928446: 20 hhh2
+alarm> 
+
+
+alarm> Start_Alarm(1) 60 al1
+Alarm(1) Inserted by Main Thread 22555 Into Alarm List at 1699922121: 60 al1
+alarm> Start_Alarm(2) 20 al2
+Alarm(2) Inserted by Main Thread 22555 Into Alarm List at 1699922090: 20 al2
+alarm> Replace_Alarm(2) 10 alalala
+Alarm (2) Replaced at <1699922082>: 10 alalala.
+(60) al1
+Alarm (1) Printed by Alarm Thread 22557 for Alarm_Time_Group_Number 12 at 1699922121: 60 al1
+(10) alalala
+Alarm (2) Printed by Alarm Thread 22559 for Alarm_Time_Group_Number 2 at 1699922121: 10 alalala
+alarm> 
+alarm> 
+alarm> Start_Alarm(1) 50 hahahaha
+Alarm(1) Inserted by Main Thread 23288 Into Alarm List at 1699929503: 50 hahahaha
+alarm> Start_Alarm(2) 30 hdhdhdhdhd
+Alarm(2) Inserted by Main Thread 23288 Into Alarm List at 1699929492: 30 hdhdhdhdhd
+alarm> Replace_Alarm(2) 12 jdjdjdj
+alarm> Alarm (2) Replaced at <1699929471>: 12 jdjdjdj.
+(50) hahahaha
+Alarm (1) Printed by Alarm Thread 23290 for Alarm_Time_Group_Number 10 at 1699929503: 50 hahahaha
+(12) jdjdjdj
+Alarm (2) Printed by Alarm Thread 23292 for Alarm_Time_Group_Number 3 at 1699929503: 12 jdjdjdj
+alarm> 
+alarm> 
+
+==============================
+- Check Replace Alarm command
+==============================
+alarm> replace_alarm(1) 20 dasdad
+This is a Bad command, one of the input values is not correct
+alarm> Replace_alarm(10) deseda 19
+1- This is a Bad command
+alarm>
+alarm> Replace_Alarm(abc) 10 dasdasda
+This is a Bad command, one of the input values is not correct
+alarm> 
+alarm> Replace_Alarm(3) 10 fifififi
+alarm> Requested Alarm ID to be Replaced is not found or It is currently Running!
+
+alarm> 
+alarm> Replace_Alarm(1) 10 bbbbbb
+alarm> Requested Alarm ID to be Replaced is not found or It is currently Running!
+alarm> 
