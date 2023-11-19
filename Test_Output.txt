@@ -1,4 +1,4 @@
-Compile Assignement-2 Program
+
 =============================
 
 dan@Ubuntu-Virtual-Machine:~/C_Project$ gcc New_Alarm_Mutex.c -lpthread
