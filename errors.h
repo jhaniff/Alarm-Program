@@ -8,8 +8,7 @@
 #include <string.h>
 
 /*
- * Define a macro that can be used for diagnostic output from
- * examples. When compiled -DDEBUG, it results in calling printf
+ * When compiled -DDEBUG, it results in calling printf
  * with the specified argument list. When DEBUG is not defined, it
  * expands to nothing.
  */
